@@ -174,59 +174,6 @@ def jakaumakaavio(df, dates, mittaukset_n, epvt_n, puhdistamot, keskiarvot=None,
     return fig, (ax_dist, ax_n)
 
 
-def trendipinokaavio(df, puhdistamot, xlim_kw=None, figsize=(8, 5), dpi=None, subplots_adjust_kw=None, alatunniste_kw=None):
-    fig, ax = plt.subplots(figsize=figsize, dpi=dpi)
-    ycoeff = -.20
-    cmap = matplotlib.cm.get_cmap('Dark2')
-    yticks = []
-    yticklabels = []
-    for i, p in enumerate(puhdistamot):
-        trendi = df["Normalisoitu trendi", p]
-        trendi_extrap = df["Normalisoitu ekstrapoloitu trendi", p]
-        mittaukset = df["Normalisoitu RNA-lkm", p].dropna()
-        y = ycoeff * i
-        yticks.append(y)
-        yticklabels.append(p)
-        color = cmap((i % 8) / 8)
-        if i == 0:
-            trend_legend = "trendi"
-            extrap_legend = "trendin ennakkoarvio"
-            data_legend = "mittaustulos"
-        else:
-            trend_legend = None
-            extrap_legend = None
-            data_legend = None
-        plt.plot(mittaukset.index, y + mittaukset, ".", c=color, alpha=.3, label=data_legend)
-        plt.plot(df.index, y + trendi, "-", c=color, label=trend_legend)
-        plt.plot(df.index, y + trendi_extrap, "-", c=color, alpha=.5, label=extrap_legend)
-        plt.hlines(y, df.index[0], df.index[-1] + np.timedelta64(7, "D"),
-                   linestyle="-", color=color, alpha=0.5, linewidth=.9)
-    plt.yticks(yticks, yticklabels, fontsize=8)
-
-    xlim_kw_defaults = {}
-    if xlim_kw is not None:
-        xlim_kw_defaults.update(xlim_kw)
-    plt.xlim(**xlim_kw_defaults)
-
-    plt.ylim(bottom=yticks[-1] + .25 * ycoeff, top=1.25)
-    ax.xaxis.set_minor_locator(WeekdayLocator(byweekday=MO))
-    plt.xticks(rotation=30, ha="right")
-    plt.grid(which="major", axis="x", c="k", alpha=0.2)
-    plt.grid(which="minor", axis="x", c="k", linestyle="-", alpha=0.1)
-    plt.title(f"Virtaamakorjattu RNA-lkm suhteessa puhdistamon trendin maksimiin")
-    plt.legend()
-
-    if alatunniste_kw is None: alatunniste_kw = {}
-    alatunniste_kaavioon(**alatunniste_kw)
-
-    subplots_adjust_kw_defaults = {"top": .927, "bottom": .157, "left": .238, "right": .981}
-    if subplots_adjust_kw is not None:
-        subplots_adjust_kw_defaults.update(subplots_adjust_kw)
-    fig.subplots_adjust(**subplots_adjust_kw_defaults)
-
-    return fig, ax
-
-
 def trendikaavio(df, puhdistamot, keskiarvot=None, painotetut_ka=None, xlim_kw=None, ylim_kw=None, logscale=False,
                  figsize=(8, 5), dpi=None, subplots_adjust_kw=None, alatunniste_kw=None):
     fig, ax = plt.subplots(figsize=figsize, dpi=dpi)
