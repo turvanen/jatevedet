@@ -79,8 +79,10 @@ def valmistele_data(data, tasoita_kw=None):
 
 
 def jakaumakaavio(df, dates, mittaukset_n, epvt_n, puhdistamot, keskiarvot=None, painotetut_ka=None, xlim_kw=None,
-                  ylim_kw=None, logscale=False, figsize=(8, 5), dpi=None, subplots_adjust_kw=None, alatunniste_kw=None):
-    fig, (ax_dist, ax_n) = plt.subplots(2, 1, figsize=figsize, dpi=dpi, sharex="all", gridspec_kw={'height_ratios': [9, 1]})
+                  ylim_kw=None, logscale=False, figsize=(8, 8), dpi=None, subplots_adjust_kw=None, alatunniste_kw=None):
+
+    upper_height = 14/8 * figsize[1]
+    fig, (ax_dist, ax_n) = plt.subplots(2, 1, figsize=figsize, dpi=dpi, sharex="all", gridspec_kw={'height_ratios': [upper_height, 1]}, layout="constrained")
 
     # Mittaukset eivät osu aina samalle päivälle, joten täydennetään puuttuva data jakaumaa varten
     idata = df.loc[dates, "Normalisoitu RNA-lkm"][puhdistamot]
@@ -89,7 +91,7 @@ def jakaumakaavio(df, dates, mittaukset_n, epvt_n, puhdistamot, keskiarvot=None,
     # Jakauman värialueet
     cmap_dist = matplotlib.cm.get_cmap('plasma')
     label_postfix = " puhdistamoista"
-    for p in [0, 10, 25, 50, 75, 90]:
+    for p in [0, 30, 65]:
         lower_interp = interpolate.PchipInterpolator(dates, np.log10(np.nanpercentile(idata, p / 2, axis=1)))
         upper_interp = interpolate.PchipInterpolator(dates, np.log10(np.nanpercentile(idata, 100 - p / 2, axis=1)))
         dates_interp = np.arange(dates[0], dates[-1] + 1, np.timedelta64(1, "h"), dtype=dates.dtype)
@@ -99,7 +101,7 @@ def jakaumakaavio(df, dates, mittaukset_n, epvt_n, puhdistamot, keskiarvot=None,
                              10 ** upper_interp(dates_interp),
                              # 10**upper_interp(dates),
                              # step="mid",
-                             color=cmap_dist(1 - p / 120),
+                             color=cmap_dist(p/100 * 0.0 + (1-p/100) * 0.9),
                              label=f"{100 - p}%{label_postfix}"
                              )
         label_postfix = ""
@@ -157,26 +159,26 @@ def jakaumakaavio(df, dates, mittaukset_n, epvt_n, puhdistamot, keskiarvot=None,
     ax_n.bar(dates, epvt_n, width=barwidth, label="joissa epävarmuustekijöitä tai tieto niistä puuttuu",
              color=cmap_n(1.0))
     ax_n.tick_params(which="both", left=False, labelleft=False, right=True, labelright=True)
-    ax_n.legend(bbox_to_anchor=(0, -2, 1, 0), borderaxespad=0., loc="upper center", ncol=2)
+    ax_n.legend(bbox_to_anchor=(0, -1.6, 1, 0), borderaxespad=0., loc="upper center", ncol=2)
     ax_n.grid(which="major", axis="both", c="k", alpha=0.1)
     ax_n.grid(which="minor", axis="x", c="k", linestyle="-", alpha=0.05)
 
     plt.xticks(rotation=30, ha="right")
 
+    # Purkkaviritelmä asettelua varten...
+    ax_n.annotate(" ", (0.5, 0), xytext=(0, -85), xycoords='axes fraction', textcoords='offset points', va="top", ha="center")
     if alatunniste_kw is None: alatunniste_kw = {}
     alatunniste_kaavioon(**alatunniste_kw)
 
-    subplots_adjust_kw_defaults = {"hspace": .050, "top": .929, "bottom": .245, "left": .094, "right": .947}
-    if subplots_adjust_kw is not None:
-        subplots_adjust_kw_defaults.update(subplots_adjust_kw)
-    fig.subplots_adjust(**subplots_adjust_kw_defaults)
+    if subplots_adjust_kw is None: subplots_adjust_kw = {}
+    fig.subplots_adjust(**subplots_adjust_kw)
 
     return fig, (ax_dist, ax_n)
 
 
 def trendikaavio(df, puhdistamot, keskiarvot=None, painotetut_ka=None, xlim_kw=None, ylim_kw=None, logscale=False,
-                 figsize=(8, 5), dpi=None, subplots_adjust_kw=None, alatunniste_kw=None):
-    fig, ax = plt.subplots(figsize=figsize, dpi=dpi)
+                 figsize=(8, 8), dpi=None, subplots_adjust_kw=None, alatunniste_kw=None):
+    fig, ax = plt.subplots(figsize=figsize, dpi=dpi, layout="constrained")
     cmap = matplotlib.cm.get_cmap('Dark2')
     for i, p in enumerate(puhdistamot):
         trendi = df["Normalisoitu trendi", p]
@@ -191,7 +193,7 @@ def trendikaavio(df, puhdistamot, keskiarvot=None, painotetut_ka=None, xlim_kw=N
             trend_legend = p
             extrap_legend = None
             data_legend = None
-        plt.plot(mittaukset.index, mittaukset, ".", c=color, alpha=.3, label=data_legend)
+        plt.plot(mittaukset.index, mittaukset, ".", c=color, label=data_legend)
         plt.plot(df.index, trendi_extrap, "-", c=color, alpha=.5, label=extrap_legend)
         plt.plot(df.index, trendi, "-", c=color, label=trend_legend)
 
@@ -235,13 +237,14 @@ def trendikaavio(df, puhdistamot, keskiarvot=None, painotetut_ka=None, xlim_kw=N
     plt.title(f"Virtaamakorjattu RNA-lukumäärä suhteessa puhdistamon trendin maksimiin")
     plt.legend()
 
+    # Purkkaviritelmä asettelua varten...
+    ax.annotate(" ", (0.5, 0), xytext=(0, -50), xycoords='axes fraction', textcoords='offset points', va="top",
+                  ha="center")
     if alatunniste_kw is None: alatunniste_kw = {}
     alatunniste_kaavioon(**alatunniste_kw)
 
-    subplots_adjust_kw_defaults = {"top": .927, "bottom": .157, "left": .090, "right": .981}
-    if subplots_adjust_kw is not None:
-        subplots_adjust_kw_defaults.update(subplots_adjust_kw)
-    fig.subplots_adjust(**subplots_adjust_kw_defaults)
+    if subplots_adjust_kw is None: subplots_adjust_kw = {}
+    fig.subplots_adjust(**subplots_adjust_kw)
 
     return fig, ax
 
@@ -251,11 +254,11 @@ def alatunniste_kaavioon(left_txt="Jätevesitilasto ©THL (lisenssillä CC BY 4.
                          right_txt="Luotu ohjelmalla https://github.com/turvanen/jatevedet"):
     txt_color = (.5, .5, .5)
     if left_txt is not None:
-        plt.figtext(0.01, 0.01, left_txt, wrap=True, ha="left", va="bottom", color=txt_color, fontsize=8)
+        plt.figtext(0, 0, "  " + left_txt + "\n ", wrap=True, ha="left", va="center", color=txt_color, fontsize=8, linespacing=2)
     if center_txt is not None:
-        plt.figtext(0.5, 0.01, center_txt, wrap=True, ha="center", va="bottom", color=txt_color, fontsize=8)
+        plt.figtext(0.5, 0, center_txt + "\n ", wrap=True, ha="center", va="center", color=txt_color, fontsize=8, linespacing=2)
     if right_txt is not None:
-        plt.figtext(0.99, 0.01, right_txt, wrap=True, ha="right", va="bottom", color=txt_color, fontsize=8)
+        plt.figtext(1, 0, right_txt + "  \n ", wrap=True, ha="right", va="center", color=txt_color, fontsize=8, linespacing=2)
 
 
 def tasoita(df, puhdistamot, M_days=9*7, reindex_freq_hours=12):
