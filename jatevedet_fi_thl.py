@@ -72,14 +72,11 @@ def valmistele_data(data, tasoita_kw=None):
                                     columns=pd.MultiIndex.from_product([[B], df2.columns.levels[1]]),
                                     index=df2.index))
 
-    # Rajataan tarkastelu vain osaan puhdistamoista
-    valitut_puhdistamot = valitse_puhdistamot(df2)
-
-    return df2, mittauspvt, mittaukset_n, epvt_n, valitut_puhdistamot
+    return df2, mittauspvt, mittaukset_n, epvt_n, puhdistamot
 
 
 def jakaumakaavio(df, dates, mittaukset_n, epvt_n, puhdistamot, keskiarvot=None, painotetut_ka=None, xlim_kw=None,
-                  ylim_kw=None, logscale=False, figsize=(8, 8), dpi=None, subplots_adjust_kw=None, alatunniste_kw=None):
+                  ylim_kw=None, logscale=False, figsize=(8, 8), dpi=None, alatunniste_kw=None):
 
     upper_height = 14/8 * figsize[1]
     fig, (ax_dist, ax_n) = plt.subplots(2, 1, figsize=figsize, dpi=dpi, sharex="all", gridspec_kw={'height_ratios': [upper_height, 1]}, layout="constrained")
@@ -170,14 +167,11 @@ def jakaumakaavio(df, dates, mittaukset_n, epvt_n, puhdistamot, keskiarvot=None,
     if alatunniste_kw is None: alatunniste_kw = {}
     alatunniste_kaavioon(**alatunniste_kw)
 
-    if subplots_adjust_kw is None: subplots_adjust_kw = {}
-    fig.subplots_adjust(**subplots_adjust_kw)
-
     return fig, (ax_dist, ax_n)
 
 
 def trendikaavio(df, puhdistamot, keskiarvot=None, painotetut_ka=None, xlim_kw=None, ylim_kw=None, logscale=False,
-                 figsize=(8, 8), dpi=None, subplots_adjust_kw=None, alatunniste_kw=None):
+                 figsize=(8, 8), dpi=None, alatunniste_kw=None):
     fig, ax = plt.subplots(figsize=figsize, dpi=dpi, layout="constrained")
     cmap = matplotlib.cm.get_cmap('Dark2')
     for i, p in enumerate(puhdistamot):
@@ -243,9 +237,6 @@ def trendikaavio(df, puhdistamot, keskiarvot=None, painotetut_ka=None, xlim_kw=N
     if alatunniste_kw is None: alatunniste_kw = {}
     alatunniste_kaavioon(**alatunniste_kw)
 
-    if subplots_adjust_kw is None: subplots_adjust_kw = {}
-    fig.subplots_adjust(**subplots_adjust_kw)
-
     return fig, ax
 
 
@@ -306,22 +297,6 @@ def trendien_keskiarvot(df, puhdistamot):
     painotettu_ka_extrap = np.where(painotettu_ka_extrap == 0.0, np.NaN, painotettu_ka_extrap)
 
     return (trendit_ka, trendit_ka_extrap), (painotettu_ka, painotettu_ka_extrap)
-
-
-def valitse_puhdistamot(df):
-    prioriteetti = []
-    puhdistamot = []
-    for p in df.columns.levels[1]:
-        vals = len(df.query("index > '2021-07'")["Virtaamakorjattu RNA-lukumäärä", p].dropna())
-        if vals <= 0:
-            continue
-        puhdistamot.append(p)
-        prioriteetti.append(np.nansum(df.loc["2022-04-01":, ("Normalisoitu trendi", p)]) +
-                            0 * np.nansum(df.loc["2022-04-01":, ("Normalisoitu ekstrapoloitu trendi", p)]))
-    puhdistamot = np.array(puhdistamot)
-    ind = np.argsort(prioriteetti)
-    puhdistamot = list(puhdistamot[ind])
-    return puhdistamot[::-1]
 
 
 def nanconv(X: np.ndarray, w: np.ndarray) -> (np.ndarray, np.ndarray):
