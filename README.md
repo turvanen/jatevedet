@@ -26,6 +26,7 @@ Taulukot ©THL, lisenssillä [CC BY 4.0](https://creativecommons.org/licenses/by
 - Joulutauon 2022-12-29...2023-01-06 (viikot 52 ja 1) aikana raportteja ei julkaistu. Myös näytteenotto oli kaksi viikkoa tauolla.
 - Kesätauon 2023-07-14...28 (viikot 28–30) aikana raportteja ei julkaistu. Myös näytteenotto oli kolme viikkoa tauolla, eli tuloksia siltä ajalta ei ole lainkaan.
 - 2023-12-08 (viikko 49) raporttia ei julkaistu itsenäisyyspäivän vuoksi. Näytteet kuitenkin kerättiin ja ne analysoitiin ilmeisesti normaalia myöhemmin. Tulokset julkaistiin viikon 50 raportissa.
+- Joulutauon 2023-12-29...2024-01-05 (viikot 52 ja 1) aikana näytteitä ei kerätty.
 
 
 ## Muuta
@@ -34,7 +35,7 @@ Komento raporttien välisten erojen tarkasteluun ilman ihmeempää lukujen käsi
 ```sh
 GIT_PAGER='less -S' git diff -U0 --no-index \
     data/Koronaviruksen\ jätevesiseurannan\ viikkoraportti\ 2022-11-{11,18}.csv \
-    --word-diff-regex='"[^\"]*"' -U1 --diff-algorithm=minimal
+    --word-diff-regex='"[^\"]*"' --diff-algorithm=minimal
 ```
 
 
