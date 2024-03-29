@@ -17,6 +17,8 @@ Taulukot ©THL, lisenssillä [CC BY 4.0](https://creativecommons.org/licenses/by
 
 - Viive näytteenotosta analyysiin on kasvanut 2023-08-01 alkaen, mikä voi sekin alentaa tuloksia.
 
+- Raportissa 2024-03-22 (viikko 12) tulosten laskentatapa muuttui RNA-standardin osalta. Muutoksen seurauksena 2022-06-27 alkaen ilmoitetut virusmäärät kymmenkertaistuivat suhteellisen harvoja poikkeuksia lukuunottamatta. Lisäksi menetelmän määritysrajat viisinkertaistuivat.
+
 
 ## Puuttuvat raportit
 
@@ -41,6 +43,8 @@ GIT_PAGER='less -S' git diff -U0 --no-index \
 
 ## Taulukon selitteet
 
+Alkaen raportista 2024-03-22 (viikko 12):
+
 -   **Näytteen päivämäärä**: Kokoomanäytteenoton (24 h) päättymispäivämäärä.
 -   **Puhdistamo**: Seurannassa mukana olevan jätevedenpuhdistamon nimi.
 -   **Puhdistamon sijainti**: Kunta, jolla jätevedenpuhdistamo sijaitsee.
@@ -57,7 +61,8 @@ GIT_PAGER='less -S' git diff -U0 --no-index \
     -   () = epävarmuustekijää ei ole testattu tai tieto puuttuu.
 -   **Virtaama**: Jätevedenpuhdistamolle kokoomanäytteenoton (24h) aikana saapuneen jäteveden määrä kuutioina (m3).
 -   **Normalisoitu RNA-lukumäärä DNA-standardilla**: Normalisoitu RNA-lukumäärä (määritysrajan, 803 geenikopiota/100ml, ylittävät tulokset): miljoonaa virus-RNA kopiota/1000 hlö/vrk. Tuloksia ajalta 3.8.2020 - 7.11.2022.
+-   **Normalisoitu RNA-lukumäärä RNA-standardilla**: Normalisoitu RNA-lukumäärä (määritysrajan, 61 geenikopiota/100ml, ylittävät tulokset): miljoonaa virus-RNA kopiota/1000 hlö/vrk. Tuloksia 27.6.2022 alkaen. Esikäsittelymenetelmä muuttui 1.1.2023 (uusi määritysraja, 606 geenikopiota/100ml). Sen jälkeen julkaistut tulokset eivät ole täysin vertailukelpoisia aikaisempien tulosten kanssa.
+
+Raporttiin 2024-03-15 (viikko 11) saakka RNA-standardin määritysrajoista kerrottiin seuraavaa (kopioitu raportista 2023-12-15):
+
 -   **Normalisoitu RNA-lukumäärä RNA-standardilla**: Normalisoitu RNA-lukumäärä (määritysrajan, 12 geenikopiota/100ml, ylittävät tulokset): miljoonaa virus-RNA kopiota/1000 hlö/vrk. Tuloksia 27.6.2022 alkaen. Esikäsittelymenetelmä muuttui 1.1.2023 (uusi määritysraja, 121 geenikopiota/100ml). Sen jälkeen julkaistut tulokset eivät ole täysin vertailukelpoisia aikaisempien tulosten kanssa.
-
-Kopioitu 2023-12-15 (viikko 50) julkaistusta raportista.
-
