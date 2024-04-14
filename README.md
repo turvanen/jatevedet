@@ -19,6 +19,8 @@ Taulukot ©THL, lisenssillä [CC BY 4.0](https://creativecommons.org/licenses/by
 
 - Raportissa 2024-03-22 (viikko 12) tulosten laskentatapa muuttui RNA-standardin osalta. Muutoksen seurauksena 2022-06-27 alkaen ilmoitetut virusmäärät kymmenkertaistuivat suhteellisen harvoja poikkeuksia lukuunottamatta. Lisäksi menetelmän määritysrajat viisinkertaistuivat.
 
+- Raportissa 2024-04-12 (viikko 15) koko maan keskiarvoon otettiin mukaan myös Rovaniemi, jolloin keskiarvossa mukana olevien paikkakuntien/puhdistamojen määrä kasvoi kymmeneen. Keskiarvoja muutettiin koko mittaushistorian ajalta.
+
 
 ## Puuttuvat raportit
 
