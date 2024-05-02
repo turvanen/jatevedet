@@ -25,12 +25,22 @@ Taulukot ©THL, lisenssillä [CC BY 4.0](https://creativecommons.org/licenses/by
 ## Puuttuvat raportit
 
 - En ole tallentanut lainkaan ennen 2022-03-11 (viikko 10) julkaistujen raporttien aineistoja.
+
 - Ajalta 2022-03-11...04-22 (viikot 10–16) olen tallentanut vain kaksi raporttia, 2022-03-11 sekä 2022-04-08 (viikot 10 ja 14).
+
 - Kesätauon 2022-07-22...29  (viikot 29–30) aikana raportteja ei julkaistu. Seuranta kuitenkin jatkui ja tulokset julkaistiin seuraavassa raportissa.
+
 - Joulutauon 2022-12-29...2023-01-06 (viikot 52 ja 1) aikana raportteja ei julkaistu. Myös näytteenotto oli kaksi viikkoa tauolla.
+
 - Kesätauon 2023-07-14...28 (viikot 28–30) aikana raportteja ei julkaistu. Myös näytteenotto oli kolme viikkoa tauolla, eli tuloksia siltä ajalta ei ole lainkaan.
+
 - 2023-12-08 (viikko 49) raporttia ei julkaistu itsenäisyyspäivän vuoksi. Näytteet kuitenkin kerättiin ja ne analysoitiin ilmeisesti normaalia myöhemmin. Tulokset julkaistiin viikon 50 raportissa.
+
 - Joulutauon 2023-12-29...2024-01-05 (viikot 52 ja 1) aikana näytteitä ei kerätty.
+
+- Keväällä 2024-04-15...05-15 (viikot 16–20) näytteet kerätään vain kaksi kertaa kuukaudessa, parittomina viikkoina. Ks. [tiedote](https://thl.fi/-/hengitystievirusten-jatevesiseurantaa-harvennetaan-kesaajaksi) (julkaistu 2024-04-12).
+
+– Kesällä 2024-05-15...08-24 (viikot 17–34) näytteet kerätään vain kerran kuukaudessa. Ks. sama tiedote kuin edellä.
 
 
 ## Muuta
