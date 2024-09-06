@@ -21,6 +21,8 @@ Taulukot ©THL, lisenssillä [CC BY 4.0](https://creativecommons.org/licenses/by
 
 - Raportissa 2024-04-12 (viikko 15) koko maan keskiarvoon otettiin mukaan myös Rovaniemi, jolloin keskiarvossa mukana olevien paikkakuntien/puhdistamojen määrä kasvoi kymmeneen. Keskiarvoja muutettiin koko mittaushistorian ajalta.
 
+- Raportissa 2024-09-06 (viikko 36) Espoon ja Jyväskylän puhdistamot pudotettiin pois jätevesiseurannan piiristä. Koko maan keskiarvossa on mukana tästedes 8 paikkakuntaa. Keskiarvoja muutettiin koko mittaushistorian ajalta.
+
 
 ## Puuttuvat raportit
 
