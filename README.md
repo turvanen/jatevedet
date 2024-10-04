@@ -7,7 +7,7 @@ Taulukot ©THL, lisenssillä [CC BY 4.0](https://creativecommons.org/licenses/by
 
 ## Huomioitavaa
 
-- Raportissa 2022-11-18 (viikko 46) taulukkoon lisättiin uuteen sarakkeeseen uudella menetelmällä (RNA-standardi) saadut määritystulokset. Uuden menetelmän tuloksia lisättiin takautuvasti usean kuukauden ajalle. Samalla sarakkeiden nimet muuttuivat ja yksi sarake poistettiin.
+- Raportissa 2022-11-18 (viikko 46) taulukkoon lisättiin uuteen sarakkeeseen uudella menetelmällä (RNA-standardi) saadut määritystulokset. Uuden menetelmän tuloksia lisättiin takautuvasti usean kuukauden ajalle. Samalla sarakkeiden nimet muuttuivat ja yksi sarake poistettiin. Puhdistamo "Seinäjoenkeskuspuhdistamo" muuttui muotoon "Seinäjoen keskuspuhdistamo".
 
 - Esikäsittelymenetelmä muuttui 2023-01-01, minkä jälkeen tulokset eivät THL:n mukaan ole täysin vertailukelpoisia aiempien kanssa. Asiantuntija Tarja Pitkänen kertoo muutoksesta tarkemmin [Twitterissä](https://nitter.net/TarjaPitkanen/status/1615355863530700801#m) (2023-01-17):
 
@@ -22,6 +22,10 @@ Taulukot ©THL, lisenssillä [CC BY 4.0](https://creativecommons.org/licenses/by
 - Raportissa 2024-04-12 (viikko 15) koko maan keskiarvoon otettiin mukaan myös Rovaniemi, jolloin keskiarvossa mukana olevien paikkakuntien/puhdistamojen määrä kasvoi kymmeneen. Keskiarvoja muutettiin koko mittaushistorian ajalta.
 
 - Raportissa 2024-09-06 (viikko 36) Espoon ja Jyväskylän puhdistamot pudotettiin pois jätevesiseurannan piiristä. Koko maan keskiarvossa on mukana tästedes 8 paikkakuntaa. Keskiarvoja muutettiin koko mittaushistorian ajalta.
+
+- Raportissa 2024-09-27 (viikko 39) sarakkeen "Koronavirus-tulos näytteestä" arvojen muotoilu muuttui. Puhdistamo "Seinäjoen keskuspuhdistamo" muuttui takaisin parin vuoden takaiseen muotoon "Seinäjoenkeskuspuhdistamo". Vuodelle 2021 lisättiin tuloksia Torniosta, joka ei ole ollut taulukossa aiemmin mukana ollenkaan, mutta kirjauksista puuttuu koronaviruksen määrä. Samankaltaisia vajaita kirjauksia lisättiin myös joillekin aiemmin taulukossa mukana olleille puhdistamoille.
+
+- Raporttien 2024-09-27 ja 2024-10-04 (viikot 39 ja 40) taulukoissa on virheitä. Jälkimmäisessä osa virheistä korjattiin, mutta jäljellä on yhä ristiriitaisia kaksinkertaisia kirjauksia ja moni vanhoista epävarmuustekijätiedoista on muuttunut.
 
 
 ## Puuttuvat raportit
