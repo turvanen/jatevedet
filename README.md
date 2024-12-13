@@ -46,7 +46,9 @@ Taulukot ©THL, lisenssillä [CC BY 4.0](https://creativecommons.org/licenses/by
 
 - Keväällä 2024-04-15...05-15 (viikot 16–20) näytteet kerätään vain kaksi kertaa kuukaudessa, parittomina viikkoina. Ks. [tiedote](https://thl.fi/-/hengitystievirusten-jatevesiseurantaa-harvennetaan-kesaajaksi) (julkaistu 2024-04-12).
 
-– Kesällä 2024-05-15...08-24 (viikot 21–34) näytteet kerätään vain kerran kuukaudessa kaikkialta muualta paitsi Helsingin jätevedenpuhdistamolta. Ks. sama tiedote kuin edellä.
+- Kesällä 2024-05-15...08-24 (viikot 21–34) näytteet kerätään vain kerran kuukaudessa kaikkialta muualta paitsi Helsingin jätevedenpuhdistamolta. Ks. sama tiedote kuin edellä.
+
+- Itsenäisyyspäivän vuoksi 2024-12-06 (viikko 49) raportti jäi julkaisematta. Ilmeisesti myöskään näytteitä ei kerätty, sillä analyysituloksia ei raportoitu edes myöhemmin.
 
 
 ## Muuta
